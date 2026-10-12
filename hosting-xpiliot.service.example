@@ -1,0 +1,18 @@
+[Unit]
+Description=Hosting Xpiliot Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USER
+WorkingDirectory=/home/YOUR_LINUX_USER/hosting-xpiliot
+EnvironmentFile=/home/YOUR_LINUX_USER/hosting-xpiliot/.env
+ExecStart=/home/YOUR_LINUX_USER/hosting-xpiliot/.venv/bin/python /home/YOUR_LINUX_USER/hosting-xpiliot/Hosting_Xpiliot_English_Cleaned.py
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
